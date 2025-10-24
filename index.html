@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EasySTT — Speech to Text made simple!</title>
+  <meta name="description" content="EasySTT turns your voice into text in real-time. Transcribe microphone and system audio locally in your browser with privacy-first design.">
+  <link rel="icon" href="./logo.png" sizes="128x128" type="image/png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74', 400: '#fb923c',
+              500: '#f59e0b', 600: '#d97706', 700: '#b45309', 800: '#92400e', 900: '#78350f'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100">
+  <!-- Header -->
+  <header class="sticky top-0 z-30 backdrop-blur bg-white/70 dark:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+        <a href="#" class="flex items-center gap-3">
+          <img src="./logo.png" alt="EasySTT" class="w-8 h-8 rounded">
+          <span class="font-semibold tracking-tight">EasySTT</span>
+        </a>
+        <nav class="flex items-center gap-3">
+          <a href="#install" class="hidden sm:inline-flex items-center text-sm px-3 py-1.5 rounded-md border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">Install</a>
+          <a href="#screenshots" class="hidden sm:inline-flex items-center text-sm px-3 py-1.5 rounded-md border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">Screenshots</a>
+          <a href="https://mybrowseraddon.com/speech-to-text.html" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center text-sm px-3 py-1.5 rounded-md border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">Support</a>
+          <a href="https://buy.stripe.com/dRm7sDaiz0WI1Jg9wD9R601" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-medium bg-brand-500 hover:bg-brand-600 text-white px-3 py-1.5 rounded-md shadow-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 21.35 10.55 20.03C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            Donate
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-orange-50 via-white to-white dark:from-slate-900 dark:via-slate-950 dark:to-slate-950"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+      <div class="grid items-center gap-10 md:grid-cols-2">
+        <div>
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">Speech to Text made simple</h1>
+          <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">EasySTT transcribes your voice in real time—right in your browser. Capture microphone and system audio, choose your engine (Whisper AI or Web Speech API), and keep your data private.</p>
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <a href="#install" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-4 py-2 rounded-md font-medium">
+              Get EasySTT
+            </a>
+            <a href="https://mybrowseraddon.com/speech-to-text.html" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-2 rounded-md font-medium hover:opacity-90">
+              Learn more
+            </a>
+            <a href="#privacy" class="inline-flex items-center gap-2 border border-slate-300 dark:border-slate-700 px-4 py-2 rounded-md hover:bg-slate-50 dark:hover:bg-slate-900">
+              Privacy Policy
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="mx-auto flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 rounded-2xl shadow-lg bg-white dark:bg-slate-900 ring-1 ring-slate-200/70 dark:ring-slate-800">
+            <img src="./logo.png" alt="EasySTT logo" class="w-28 h-28 sm:w-32 sm:h-32">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Install -->
+  <section id="install" class="py-12 sm:py-16 bg-white dark:bg-slate-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-2xl">
+        <h2 class="text-2xl sm:text-3xl font-bold">Get EasySTT</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Install from the product page or load the extension manually during development.</p>
+      </div>
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <h3 class="font-semibold">From product page</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Visit the product page to get EasySTT for your browser.</p>
+          <a href="https://mybrowseraddon.com/speech-to-text.html" target="_blank" rel="noopener" class="mt-4 inline-flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-2 rounded-md font-medium hover:opacity-90">Open product page</a>
+        </div>
+        <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <h3 class="font-semibold">Manual install (developer mode)</h3>
+          <ol class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300 list-decimal ml-5">
+            <li>Open <span class="font-mono">chrome://extensions</span> in Chrome.</li>
+            <li>Enable <strong>Developer mode</strong> (top-right).</li>
+            <li>Click <strong>Load unpacked</strong> and select the EasySTT folder.</li>
+            <li>Pin the extension and click its icon to open the UI.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-12 sm:py-16 bg-white dark:bg-slate-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-2xl">
+        <h2 class="text-2xl sm:text-3xl font-bold">Why EasySTT</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Designed for meetings, study, and productivity. Minimal UI, powerful engines, and privacy-first by default.</p>
+      </div>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <h3 class="font-semibold">Real‑time transcription</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">See words appear as you speak. Copy text instantly when you stop.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <h3 class="font-semibold">Microphone + System audio</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Transcribe your mic, your computer’s audio, or both (screen share with “Share audio”).</p>
+        </div>
+        <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <h3 class="font-semibold">Local processing</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Audio is processed in your browser. No accounts, no cloud by default.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <h3 class="font-semibold">Two engines</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Use Whisper AI (WASM/WebGPU) for accuracy and system audio, or Web Speech API for lightweight mic-only.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <h3 class="font-semibold">Fast and simple UI</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Clean layout, one-click start, theme toggle, and editable results area.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <h3 class="font-semibold">Privacy‑first</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Minimal permissions and no tracking. Your words stay on your device.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="py-12 sm:py-16 bg-slate-50 dark:bg-slate-900/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold">How it works</h2>
+      <ol class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <li class="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <span class="text-sm font-semibold text-slate-500">1</span>
+          <p class="mt-2 font-medium">Pick your engine</p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Whisper AI for system audio support and accuracy, or Web Speech API for quick mic-only.</p>
+        </li>
+        <li class="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <span class="text-sm font-semibold text-slate-500">2</span>
+          <p class="mt-2 font-medium">Select audio source</p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Microphone, Computer audio, or Both. Enable “Share audio” in the picker for system sound.</p>
+        </li>
+        <li class="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <span class="text-sm font-semibold text-slate-500">3</span>
+          <p class="mt-2 font-medium">Start listening</p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Click the mic, speak or play audio, and watch text appear in real-time.</p>
+        </li>
+        <li class="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <span class="text-sm font-semibold text-slate-500">4</span>
+          <p class="mt-2 font-medium">Copy and use</p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Edit the text area, copy with Ctrl/Cmd+C, and paste anywhere.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section id="screenshots" class="py-12 sm:py-16 bg-white dark:bg-slate-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold">Screenshots</h2>
+      <div class="mt-6 grid gap-6 md:grid-cols-2">
+        <figure class="rounded-xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <img src="./ss1.jpg" alt="EasySTT interface screenshot" class="w-full h-auto">
+          <figcaption class="px-4 py-3 text-sm text-slate-600 dark:text-slate-300">Main interface with toolbar, live transcription, and settings.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy Policy -->
+  <section id="privacy" class="py-12 sm:py-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold">Privacy Policy</h2>
+      <p class="mt-4 text-slate-700 dark:text-slate-300">Effective date: <span id="pp-date"></span></p>
+
+      <div class="mt-6 space-y-6 text-slate-700 dark:text-slate-300 leading-relaxed">
+        <p><strong>EasySTT</strong> is designed to process speech locally in your browser. We minimize permissions and do not collect, store, or sell personal data.</p>
+
+        <div>
+          <h3 class="font-semibold text-slate-900 dark:text-white">Data processing</h3>
+          <ul class="list-disc ml-5 mt-2 space-y-1">
+            <li><strong>Audio input</strong> (microphone and/or system audio) is captured only when you click Start.</li>
+            <li>When using <strong>Web Speech API</strong>, recognition is handled by the browser’s built-in engine (mic-only).</li>
+            <li>When using <strong>Whisper AI</strong>, models run locally via WebAssembly/WebGPU. The first run may download a pre-trained model to your browser cache from a model host.</li>
+            <li><strong>No account</strong> is required. Transcripts remain in the page until you copy or clear them.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-slate-900 dark:text-white">Permissions we use</h3>
+          <ul class="list-disc ml-5 mt-2 space-y-1">
+            <li><strong>Microphone</strong> access to capture your voice when you opt in.</li>
+            <li><strong>Display capture</strong> (with “Share audio”) to capture system audio when you select Computer audio or Both.</li>
+            <li><strong>Storage</strong> to remember your preferences (theme, language, engine, etc.).</li>
+            <li><strong>Context menus</strong> to provide quick actions (if enabled by the extension).</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-slate-900 dark:text-white">What we don’t do</h3>
+          <ul class="list-disc ml-5 mt-2 space-y-1">
+            <li>No analytics, tracking pixels, or third‑party ads.</li>
+            <li>No cloud upload of your audio or transcripts by default.</li>
+            <li>No background recording—capture starts only when you click.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-slate-900 dark:text-white">Third‑party components</h3>
+          <p class="mt-2">EasySTT may leverage browser technologies such as Web Speech API, WebAssembly, WebGPU, and ONNX Runtime Web to run models locally. Model files may be fetched from a trusted host on first use and cached by your browser.</p>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-slate-900 dark:text-white">Children’s privacy</h3>
+          <p class="mt-2">EasySTT is intended for general productivity use and is not directed to children. Do not use the extension where applicable laws restrict consent.</p>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-slate-900 dark:text-white">Updates</h3>
+          <p class="mt-2">We may update this policy as features evolve. Material changes will be reflected on this page.</p>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-slate-900 dark:text-white">Contact</h3>
+          <p class="mt-2">Questions or requests? Visit the <a class="text-brand-600 hover:underline" href="https://mybrowseraddon.com/speech-to-text.html" target="_blank" rel="noopener">support page</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-12 sm:py-16 bg-slate-50 dark:bg-slate-900/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold">FAQ</h2>
+      <div class="mt-6 grid gap-6 md:grid-cols-2">
+        <div class="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-semibold">Does EasySTT work offline?</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Yes, after the initial model download for Whisper AI is cached by your browser, many features continue to work offline.</p>
+        </div>
+        <div class="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-semibold">Can I capture system audio?</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Yes—choose Computer audio or Both and select a screen/tab with “Share audio” enabled. This requires the Whisper AI engine.</p>
+        </div>
+        <div class="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-semibold">Is my audio sent to a server?</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">By default, no. Audio is processed locally in the browser. Your browser may download models on first use, but transcripts aren’t uploaded by EasySTT.</p>
+        </div>
+        <div class="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-semibold">Which languages are supported?</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Languages depend on the selected engine. Whisper supports many languages; Web Speech API support varies by browser/OS.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="./logo.png" alt="EasySTT" class="w-6 h-6 rounded">
+        <span class="text-sm text-slate-600 dark:text-slate-300">EasySTT — Speech to Text made simple</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://mybrowseraddon.com/speech-to-text.html" target="_blank" rel="noopener" class="text-sm text-slate-600 dark:text-slate-300 hover:underline">Support</a>
+        <span class="text-slate-400">·</span>
+        <a href="#install" class="text-sm text-slate-600 dark:text-slate-300 hover:underline">Install</a>
+        <span class="text-slate-400">·</span>
+        <a href="#screenshots" class="text-sm text-slate-600 dark:text-slate-300 hover:underline">Screenshots</a>
+        <span class="text-slate-400">·</span>
+        <a href="#privacy" class="text-sm text-slate-600 dark:text-slate-300 hover:underline">Privacy</a>
+        <span class="text-slate-400">·</span>
+        <a href="https://buy.stripe.com/dRm7sDaiz0WI1Jg9wD9R601" target="_blank" rel="noopener" class="text-sm text-brand-600 hover:underline">Donate</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Set policy date to today in a simple ISO format
+    const d = new Date();
+    const iso = d.toLocaleDateString('en-CA'); // YYYY-MM-DD
+    const el = document.getElementById('pp-date');
+    if (el) el.textContent = iso;
+  </script>
+</body>
+</html>
